@@ -80,7 +80,7 @@ module Temporal
         signal_input = options.delete(:signal_input)
         raise NotImplementedError, 'Signals are not available when Temporal::Testing.local! is on' if signal_name || signal_input
 
-        reuse_policy = options[:workflow_id_reuse_policy] || :allow_failed
+        reuse_policy = options[:workflow_id_reuse_policy] || :allow
         workflow_id = options[:workflow_id] || SecureRandom.uuid
         run_id = SecureRandom.uuid
         memo = options[:memo] || {}

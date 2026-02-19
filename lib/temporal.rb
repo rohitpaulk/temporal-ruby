@@ -1,5 +1,8 @@
 # Protoc wants all of its generated files on the LOAD_PATH
-$LOAD_PATH << File.expand_path('./gen', __dir__)
+
+unless ENV['COINBASE_TEMPORAL_RUBY_DISABLE_PROTO_LOAD'] == '1'
+  $LOAD_PATH << File.expand_path('./gen', __dir__)
+end
 
 require 'securerandom'
 require 'forwardable'
